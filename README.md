@@ -1,12 +1,39 @@
-# React + Vite
+# 👟 ShoeStore - E-Commerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **ShoeStore**, a full-stack e-commerce web application for selling stylish shoes, built with:
 
-Currently, two official plugins are available:
+- 🖼️ **ReactJS** (Frontend)
+- 🛠️ **.NET Web API** (Backend)
+- 🍃 **MongoDB** (Database)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🛍️ Customer Features
+- Browse latest collections of shoes
+- Product detail pages with image gallery
+- Add to cart, update quantity, checkout
+- User registration and login (JWT authentication)
+
+### 🛒 Admin Features
+- Manage shoe inventory (CRUD products)
+- Manage user orders and customer info
+- Dashboard with sales summary
+
+---
+
+## 🧱 Tech Stack
+
+| Layer       | Tech Used                     |
+|-------------|-------------------------------|
+| Frontend    | ReactJS, Axios, Tailwind CSS  |
+| Backend     | .NET 7 Web API, C#            |
+| Database    | MongoDB Atlas / local MongoDB |
+| Auth        | JWT Token                     |
+| Dev Tools   | Postman, VSCode, Swagger      |
+
+---
+
+## 📁 Project Structure
+
