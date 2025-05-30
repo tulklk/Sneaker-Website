@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { TrashIcon } from '@heroicons/react/24/outline';
+import Navbar from '../components/Navbar';
 
 const Cart = () => {
   // Mock cart data - in a real app, this would come from a state management solution
@@ -44,96 +45,99 @@ const Cart = () => {
   const total = subtotal + shipping;
 
   return (
-    <div className="container cart-page-container">
-      <h1 className="section-title">Giỏ Hàng</h1>
+    <>
+      <Navbar />
+      <div className="container cart-page-container">
+        <h1 className="section-title">Giỏ Hàng</h1>
 
-      {cartItems.length === 0 ? (
-        <div className="empty-cart-message">
-          <p>Giỏ hàng của bạn đang trống</p>
-          <Link
-            to="/shop"
-            className="btn btn-primary"
-          >
-            Tiếp Tục Mua Sắm
-          </Link>
-        </div>
-      ) : (
-        <div className="cart-content-area">
-          {/* Cart Items */}
-          <div className="cart-items-list">
-            <div className="space-y-4">
-              {cartItems.map((item) => (
-                <div
-                  key={item.id}
-                  className="cart-item"
-                >
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="cart-item-image"
-                  />
-                  <div className="cart-item-info">
-                    <h3 className="cart-item-name">{item.name}</h3>
-                    <p className="cart-item-size">Kích thước: {item.size}</p>
-                    <p className="cart-item-price">{item.price.toLocaleString('vi-VN')}đ</p>
-                  </div>
-                  <div className="cart-item-actions">
-                    <div className="quantity-controls">
-                      <button
-                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                        className="quantity-button"
-                      >
-                        -
-                      </button>
-                      <span>{item.quantity}</span>
-                      <button
-                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                        className="quantity-button"
-                      >
-                        +
-                      </button>
-                    </div>
-                    <button
-                      onClick={() => removeItem(item.id)}
-                      className="remove-item-button"
-                    >
-                      <TrashIcon className="icon-size" />
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Order Summary */}
-          <div className="order-summary">
-            <h2 className="order-summary-title">Tổng Đơn Hàng</h2>
-            <div className="order-summary-details">
-              <div className="order-summary-line">
-                <span>Tạm tính</span>
-                <span>{subtotal.toLocaleString('vi-VN')}đ</span>
-              </div>
-              <div className="order-summary-line">
-                <span>Phí vận chuyển</span>
-                <span>{shipping.toLocaleString('vi-VN')}đ</span>
-              </div>
-              <div className="order-summary-total">
-                <div className="flex justify-between font-bold">
-                  <span>Tổng cộng</span>
-                  <span>{total.toLocaleString('vi-VN')}đ</span>
-                </div>
-              </div>
-            </div>
+        {cartItems.length === 0 ? (
+          <div className="empty-cart-message">
+            <p>Giỏ hàng của bạn đang trống</p>
             <Link
-              to="/checkout"
-              className="btn btn-primary checkout-button"
+              to="/shop"
+              className="btn btn-primary"
             >
-              Tiến Hành Thanh Toán
+              Tiếp Tục Mua Sắm
             </Link>
           </div>
-        </div>
-      )}
-    </div>
+        ) : (
+          <div className="cart-content-area">
+            {/* Cart Items */}
+            <div className="cart-items-list">
+              <div className="space-y-4">
+                {cartItems.map((item) => (
+                  <div
+                    key={item.id}
+                    className="cart-item"
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="cart-item-image"
+                    />
+                    <div className="cart-item-info">
+                      <h3 className="cart-item-name">{item.name}</h3>
+                      <p className="cart-item-size">Kích thước: {item.size}</p>
+                      <p className="cart-item-price">{item.price.toLocaleString('vi-VN')}đ</p>
+                    </div>
+                    <div className="cart-item-actions">
+                      <div className="quantity-controls">
+                        <button
+                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                          className="quantity-button"
+                        >
+                          -
+                        </button>
+                        <span>{item.quantity}</span>
+                        <button
+                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                          className="quantity-button"
+                        >
+                          +
+                        </button>
+                      </div>
+                      <button
+                        onClick={() => removeItem(item.id)}
+                        className="remove-item-button"
+                      >
+                        <TrashIcon className="icon-size" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Order Summary */}
+            <div className="order-summary">
+              <h2 className="order-summary-title">Tổng Đơn Hàng</h2>
+              <div className="order-summary-details">
+                <div className="order-summary-line">
+                  <span>Tạm tính</span>
+                  <span>{subtotal.toLocaleString('vi-VN')}đ</span>
+                </div>
+                <div className="order-summary-line">
+                  <span>Phí vận chuyển</span>
+                  <span>{shipping.toLocaleString('vi-VN')}đ</span>
+                </div>
+                <div className="order-summary-total">
+                  <div className="flex justify-between font-bold">
+                    <span>Tổng cộng</span>
+                    <span>{total.toLocaleString('vi-VN')}đ</span>
+                  </div>
+                </div>
+              </div>
+              <Link
+                to="/checkout"
+                className="btn btn-primary checkout-button"
+              >
+                Tiến Hành Thanh Toán
+              </Link>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

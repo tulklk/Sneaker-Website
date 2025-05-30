@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { AdjustmentsHorizontalIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import Navbar from '../components/Navbar';
 
 const Shop = () => {
   const [selectedBrand, setSelectedBrand] = useState('all');
@@ -185,7 +186,8 @@ const Shop = () => {
   );
 
   return (
-    <div className="container shop-page-container">
+    <>
+      <Navbar />
       <div className="shop-header">
         <h1 className="section-title">Cửa Hàng</h1>
         <button
@@ -260,7 +262,7 @@ const Shop = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

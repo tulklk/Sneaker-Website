@@ -1,16 +1,14 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import Footer from '../components/Footer'; // Assuming you want to include Footer
+import Navbar from '../components/Navbar';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'; // Import icons
-import Popup from '../components/Popup'; // Import Popup component
+import { toast } from 'react-toastify'; // Import toast from react-toastify
 
-const ProductDetail = () => {
+function ProductDetail() {
   const { id } = useParams();
   const [selectedSize, setSelectedSize] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [currentImageIndex, setCurrentImageIndex] = useState(0); // State for current image index
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const [popupMessage, setPopupMessage] = useState('');
 
   // Mock product data - in a real app, this would come from an API
   const product = {
@@ -58,11 +56,10 @@ const ProductDetail = () => {
 
   const handleAddToCart = () => {
     if (!selectedSize) {
-      showPopup('Vui lòng chọn kích thước');
+      toast.error('Vui lòng chọn kích thước');
       return;
     }
-    // Add to cart logic here
-    console.log('Added to cart:', { ...product, size: selectedSize, quantity });
+    toast.success(`Đã thêm ${quantity} x ${product.name} - ${selectedSize} vào giỏ hàng!`);
   };
 
   const handlePreviousImage = () => {
@@ -77,18 +74,9 @@ const ProductDetail = () => {
     );
   };
 
-  const showPopup = (message) => {
-    setPopupMessage(message);
-    setIsPopupVisible(true);
-  };
-
-  const hidePopup = () => {
-    setIsPopupVisible(false);
-    setPopupMessage('');
-  };
-
   return (
     <>
+      <Navbar />
       <div className="container product-detail-page-container">
         <div className="product-detail-content-area">
           {/* Product Image */}
@@ -218,10 +206,8 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-      <Footer /> {/* Assuming you want Footer here as well */}
-      <Popup message={popupMessage} isVisible={isPopupVisible} onClose={hidePopup} /> {/* Render Popup */}
     </>
   );
-};
+}
 
 export default ProductDetail; 

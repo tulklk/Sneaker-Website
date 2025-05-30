@@ -20,11 +20,13 @@ body {
 
 /* App Layout */
 .app-container {
+  /* Reverted to original styles or removed flex properties */
   min-height: 100vh;
   background-color: #f9fafb;
 }
 
 .main-content {
+  /* Reverted to original styles or removed flex and padding-top */
   max-width: 1440px;
   margin: 0 auto;
   padding: 2rem;
@@ -479,6 +481,7 @@ body {
     color: #e5e7eb;
     padding: 3rem 0;
     font-size: 0.95rem;
+    width: 100%;
 }
 
 .footer-container {
@@ -1243,35 +1246,6 @@ body {
 .auth-switch-link:hover {
   color: #1e40af;
   text-decoration: underline;
-}
-
-/* Add responsive adjustments for auth pages if necessary */
-@media (max-width: 1024px) {
-  .hero-title {
-    font-size: 3.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .auth-container {
-    min-height: 100vh;
-    padding: 1.5rem 0.8rem;
-  }
-
-  .auth-form-card {
-    padding: 2rem;
-    width: calc(100% - 1.6rem);
-  }
-
-  .auth-title {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .auth-form {
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
 }
 
 /* Added styles for image gallery */

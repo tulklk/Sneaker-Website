@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 
 const Home = () => {
   const featuredProducts = [
@@ -7,21 +7,21 @@ const Home = () => {
       id: 1,
       name: 'Nike Air Max 270',
       price: 150,
-      image: 'https://via.placeholder.com/300x200?text=Nike+Air+Max',
+      image: 'https://placehold.co/300x200/png',
       category: 'Chạy Bộ',
     },
     {
       id: 2,
       name: 'Adidas Ultraboost 22',
       price: 180,
-      image: 'https://via.placeholder.com/300x200?text=Adidas+Ultraboost',
+      image: 'https://placehold.co/300x200/png',
       category: 'Thời Trang',
     },
     {
       id: 3,
       name: 'New Balance 574',
       price: 100,
-      image: 'https://via.placeholder.com/300x200?text=New+Balance',
+      image: 'https://placehold.co/300x200/png',
       category: 'Cổ Điển',
     },
   ];
@@ -29,20 +29,21 @@ const Home = () => {
   const categories = [
     {
       title: 'Giày Chạy Bộ',
-      image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3',
+      image: 'https://placehold.co/600x400/png',
     },
     {
       title: 'Giày Thời Trang',
-      image: 'https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3',
+      image: 'https://placehold.co/600x400/png',
     },
     {
       title: 'Giày Cổ Điển',
-      image: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?ixlib=rb-4.0.3',
+      image: 'https://placehold.co/600x400/png',
     },
   ];
 
   return (
-    <div>
+    <>
+      <Navbar />
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-overlay"></div>
@@ -136,10 +137,7 @@ const Home = () => {
           </form>
         </div>
       </section>
-
-      {/* Footer */}
-      <Footer />
-    </div>
+    </>
   );
 };
 

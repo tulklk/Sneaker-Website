@@ -1,6 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import PageLoader from './components/PageLoader';
 import TrangChu from './pages/Home';
 import CuaHang from './pages/Shop';
 import ChiTietSanPham from './pages/ProductDetail';
@@ -8,27 +7,30 @@ import ThanhToan from './pages/Checkout';
 import GioHang from './pages/Cart';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import AdminDashboardPage from './pages/AdminDashboardPage';
+import Footer from './components/Footer';
 
 function App() {
+  const location = useLocation();
+  const isAdminRoute = location.pathname === '/admin/dashboard';
+
   return (
-    <Router>
-      <div className="app-container">
-        <Navbar />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<TrangChu />} />
-            <Route path="/shop" element={<CuaHang />} />
-            <Route path="/product/:id" element={<ChiTietSanPham />} />
-            <Route path="/cart" element={<GioHang />} />
-            <Route path="/checkout" element={<ThanhToan />} />
-            <Route path="/account" element={null} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <div className="app-container">
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<PageLoader><TrangChu /></PageLoader>} />
+          <Route path="/shop" element={<PageLoader><CuaHang /></PageLoader>} />
+          <Route path="/product/:id" element={<PageLoader><ChiTietSanPham /></PageLoader>} />
+          <Route path="/cart" element={<PageLoader><GioHang /></PageLoader>} />
+          <Route path="/checkout" element={<PageLoader><ThanhToan /></PageLoader>} />
+          <Route path="/admin/dashboard" element={<PageLoader><AdminDashboardPage /></PageLoader>} />
+          <Route path="/account" element={<PageLoader>{null}</PageLoader>} />
+          <Route path="/login" element={<PageLoader><Login /></PageLoader>} />
+          <Route path="/register" element={<PageLoader><Register /></PageLoader>} />
+        </Routes>
+      </main>
+      {!isAdminRoute && <Footer />}
+    </div>
   );
 }
 

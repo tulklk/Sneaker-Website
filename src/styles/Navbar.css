@@ -1,0 +1,66 @@
+.nav-user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-user-info-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  min-width: 120px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 8px; /* Space between toggle and dropdown */
+}
+
+.nav-dropdown-item {
+  color: #333;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+  border: none; /* For the button element */
+  background: none; /* For the button element */
+  width: 100%; /* For the button element */
+  text-align: left; /* For the button element */
+  cursor: pointer;
+}
+
+.nav-dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+.nav-username {
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-logout-btn {
+  background: none;
+  border: 1px solid #ec4899;
+  color: #ec4899;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.nav-logout-btn:hover {
+  background: #ec4899;
+  color: white;
+} 
